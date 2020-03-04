@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">TheFourthProject</string>
+    <string name="gotogooglemap">Map</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="wall_clock_description">A classic wall clock. Licensed from iStockPhoto.
+        noun. The definition of a clock is a device for measuring and showing the time of day,
+        or a decoration on the side of a sock or stocking coming up from the ankle. An example
+        of a clock is a watch. </string>
+
+    <string name="chair_description">A chair is a piece of furniture. It is used for
+        sitting on and it can also be used for standing on, if you can\'t reach something.
+        They usually have four legs to support the weight. Some types of chairs, such as
+        the bar-stool, have only one leg in the center.</string>
+
+    <string name="table_description">The desk was perfect in its imperfections, made more
+    wonderful by the passage of time and the age in the wooden swirls. </string>
+
+    <string name="vase_description">The vase is beautiful in it\'s simplicity, just
+        as a canvas is simply there to hold the art so lovingly applied, it allows
+        the flowers to take centre stage. They are so bold in the room, and all the
+        more wonderful for it. So many vibrant hues dance in a breeze that saunters
+        in through open doors and windows, together a festival for eyes who care to see.</string>
+
+    <string name="cupboard_description">A cupboard is a piece of furniture that\'s used for storing things.
+    Your kitchen cupboard might actually be full of cups, while the cupboard in your bedroom might hold sweaters
+    and socks. ... A cupboard usually has doors that open and shelves inside, for storage.</string>
+
+
+
+
 </resources>

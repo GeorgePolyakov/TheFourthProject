@@ -2,44 +2,46 @@ package com.example.thefourthproject;
 
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapterVh> /*implements Filterable*/ {
+public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapterVh> {
 
     private List<UserModel> userModelList;
-
     private Context context;
-    private SelectedUser selectedUser;
+    private OnItemCustomClickListener clickListener;
 
-    public UsersAdapter(List<UserModel> userModelList, SelectedUser selectedUser) {
+    public UsersAdapter(List<UserModel> userModelList, OnItemCustomClickListener clickListener) {
         this.userModelList = userModelList;
+        this.clickListener = clickListener;
+    }
 
-        this.selectedUser = selectedUser;
+    public int getItem(int position) {
+        if (position >= 0 && position < userModelList.size()) {
+            return userModelList.get(position).getUserName();
+        } else return 0;
     }
 
     @NonNull
     @Override
     public UsersAdapter.UsersAdapterVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
-        return new UsersAdapterVh(LayoutInflater.from(context).inflate(R.layout.row_users,null));
+        return new UsersAdapterVh(LayoutInflater.from(context).inflate(R.layout.row_users, null), clickListener);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull UsersAdapter.UsersAdapterVh holder, int position) {
 
         UserModel userModel = userModelList.get(position);
         int username = userModel.getUserName();
-        Log.i("myTag", holder.tvPrefix + "xyi");
         holder.tvPrefix.setImageResource(username);
     }
 
@@ -48,27 +50,21 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapter
         return userModelList.size();
     }
 
-    public interface SelectedUser{
-
-        void selectedUser(UserModel userModel);
+    public interface OnItemCustomClickListener {
+        void onItemClicked(int adapterPosition, ImageView tvPrefix);
     }
 
     public class UsersAdapterVh extends RecyclerView.ViewHolder {
-
         ImageView tvPrefix;
 
-        public UsersAdapterVh(@NonNull View itemView) {
-            super(itemView);
+        public UsersAdapterVh(@NonNull View itemViewfinal, OnItemCustomClickListener clickListener) {
+            super(itemViewfinal);
             tvPrefix = itemView.findViewById(R.id.imageRecycle);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    selectedUser.selectedUser(userModelList.get(getAdapterPosition()));
+            itemView.setOnClickListener(v -> {
+                if (clickListener != null) {
+                    clickListener.onItemClicked(getAdapterPosition(), tvPrefix);
                 }
             });
-
-
         }
     }
 }
