@@ -20,27 +20,25 @@ public class ProductActivity extends AppCompatActivity {
     private ImageView ivLogo;
     private int logo;
     private Resources res;
-    private String product;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-        tvUser = findViewById(R.id.selectedUser);
-        logo = getIntent().getIntExtra("logo", 0);
-        ivLogo = findViewById(R.id.imageView2);
-        ivLogo.setImageResource(logo);
-        ivLogo.setTransitionName("ivLogo");
-        if(logo==R.drawable.vase) {
-            Toast.makeText(this, "Обычное Toast сообщение",
-                    Toast.LENGTH_SHORT).show();
-        }
+        initVariable();
+        setImage();
         setDescription();
     }
 
-    public void setDescription()
-    {
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void setImage() {
+        logo = getIntent().getIntExtra("logo", 0);
+        ivLogo.setImageResource(logo);
+        ivLogo.setTransitionName("ivLogo");
+    }
+
+    public void setDescription() {
         res = tvUser.getContext().getResources();
         switch (logo) {
             case (R.drawable.clock):
@@ -62,6 +60,11 @@ public class ProductActivity extends AppCompatActivity {
                 Log.i("myTag", "Intent Failure");
                 break;
         }
+    }
+
+    public void initVariable() {
+        tvUser = findViewById(R.id.selectedUser);
+        ivLogo = findViewById(R.id.productImageView);
 
     }
 }
