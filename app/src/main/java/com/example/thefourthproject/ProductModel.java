@@ -2,10 +2,10 @@ package com.example.thefourthproject;
 
 import java.io.Serializable;
 
-public class UserModel implements Serializable {
+public class ProductModel implements Serializable {
 
     private int userName;
-    public UserModel(int userName) {
+    public ProductModel(int userName) {
         this.userName = userName;
     }
     public int getUserName() {

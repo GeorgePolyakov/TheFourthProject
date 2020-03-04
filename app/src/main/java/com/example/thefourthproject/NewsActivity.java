@@ -2,22 +2,17 @@ package com.example.thefourthproject;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +20,7 @@ import java.util.List;
 public class NewsActivity extends AppCompatActivity implements UsersAdapter.OnItemCustomClickListener {
 
     RecyclerView recyclerView;
-    List<UserModel> userModelList = new ArrayList<>();
+    List<ProductModel> productModelList = new ArrayList<>();
     Pair[] pairs;
     int[] names = {R.drawable.clock, R.drawable.chair, R.drawable.table, R.drawable.cupboard, R.drawable.vase};
     UsersAdapter usersAdapter;
@@ -41,10 +36,10 @@ public class NewsActivity extends AppCompatActivity implements UsersAdapter.OnIt
         recyclerView.setLayoutManager(linearLayoutManager);
 
         for (int s : names) {
-            UserModel userModel = new UserModel(s);
-            userModelList.add(userModel);
+            ProductModel productModel = new ProductModel(s);
+            productModelList.add(productModel);
         }
-        usersAdapter = new UsersAdapter(userModelList, this);
+        usersAdapter = new UsersAdapter(productModelList, this);
         recyclerView.setAdapter(usersAdapter);
     }
 

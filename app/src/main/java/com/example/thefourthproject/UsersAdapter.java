@@ -14,18 +14,18 @@ import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapterVh> {
 
-    private List<UserModel> userModelList;
+    private List<ProductModel> productModelList;
     private Context context;
     private OnItemCustomClickListener clickListener;
 
-    public UsersAdapter(List<UserModel> userModelList, OnItemCustomClickListener clickListener) {
-        this.userModelList = userModelList;
+    public UsersAdapter(List<ProductModel> productModelList, OnItemCustomClickListener clickListener) {
+        this.productModelList = productModelList;
         this.clickListener = clickListener;
     }
 
     public int getItem(int position) {
-        if (position >= 0 && position < userModelList.size()) {
-            return userModelList.get(position).getUserName();
+        if (position >= 0 && position < productModelList.size()) {
+            return productModelList.get(position).getUserName();
         } else return 0;
     }
 
@@ -40,14 +40,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapter
     @Override
     public void onBindViewHolder(@NonNull UsersAdapter.UsersAdapterVh holder, int position) {
 
-        UserModel userModel = userModelList.get(position);
-        int username = userModel.getUserName();
+        ProductModel productModel = productModelList.get(position);
+        int username = productModel.getUserName();
         holder.tvPrefix.setImageResource(username);
     }
 
     @Override
     public int getItemCount() {
-        return userModelList.size();
+        return productModelList.size();
     }
 
     public interface OnItemCustomClickListener {
