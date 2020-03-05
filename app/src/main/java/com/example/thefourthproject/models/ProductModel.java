@@ -1,4 +1,4 @@
-package com.example.thefourthproject;
+package com.example.thefourthproject.models;
 
 import java.io.Serializable;
 

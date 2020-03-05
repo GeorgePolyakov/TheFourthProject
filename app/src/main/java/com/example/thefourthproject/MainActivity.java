@@ -7,21 +7,18 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
-
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private CustomView mCustomView;
+    private CustomCircleView mCustomCircleView;
     private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mCustomView = findViewById(R.id.customView);
-        mCustomView.setOnClickListener(this);
+        mCustomCircleView = findViewById(R.id.customView);
+        mCustomCircleView.setOnClickListener(this);
         button = findViewById(R.id.buttonGoogleMap);
         button.setOnClickListener(this);
     }

@@ -14,6 +14,8 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.thefourthproject.models.ProductModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +23,6 @@ public class NewsActivity extends AppCompatActivity implements ProductsRecycleAd
 
     RecyclerView recyclerView;
     List<ProductModel> productModelList = new ArrayList<>();
-    Pair[] pairs;
     int[] names = {R.drawable.clock, R.drawable.chair, R.drawable.table, R.drawable.cupboard, R.drawable.vase};
     ProductsRecycleAdapter productsRecycleAdapter;
 
@@ -52,7 +53,6 @@ public class NewsActivity extends AppCompatActivity implements ProductsRecycleAd
                 NewsActivity.this, listOfViews.toArray(new android.util.Pair[]{})).toBundle();
         int drawableId = productsRecycleAdapter.getItem(position);
         Intent intent = new Intent(NewsActivity.this, ProductActivity.class);
-        Log.i("myTag", ivLogo.getId() + "");
         intent.putExtra("logo", drawableId);
         startActivity(intent, bundle);
     }

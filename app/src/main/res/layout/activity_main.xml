@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".NewsActivity">
 
-    <com.example.thefourthproject.CustomView
+    <com.example.thefourthproject.CustomCircleView
         android:id="@+id/customView"
         android:layout_width="@dimen/custom_width_height"
         android:layout_height="@dimen/custom_width_height"
@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:mradius="@dimen/radius" />
+        app:circleRadius="@dimen/radius" />
 
     <Button
         android:id="@+id/buttonGoogleMap"
@@ -23,6 +23,6 @@
         android:layout_height="wrap_content"
         android:text="@string/gotogooglemap"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-26dp" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-public class CustomView extends View {
+public class CustomCircleView extends View {
 
     private static final int SQUARE_SIZE_DEF = 200;
     private Paint mPaintSquare;
@@ -26,17 +26,17 @@ public class CustomView extends View {
         canvas.drawCircle(width / 2, height / 2, circle, mPaintSquare);
     }
 
-    public CustomView(Context context) {
+    public CustomCircleView(Context context) {
         super(context);
         init(null);
     }
 
-    public CustomView(Context context, AttributeSet attrs) {
+    public CustomCircleView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public CustomView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomCircleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
@@ -46,10 +46,9 @@ public class CustomView extends View {
         mPaintSquare = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaintSquare.setTextAlign(Paint.Align.CENTER);
         if (set == null) return;
-        TypedArray ta = getContext().obtainStyledAttributes(set, R.styleable.CustomView);
-        mSquareColor = ta.getColor(R.styleable.CustomView_square_color, Color.BLUE);
-        mSquareSize = ta.getDimensionPixelSize(R.styleable.CustomView_square_size, SQUARE_SIZE_DEF);
-        circle = ta.getDimensionPixelSize(R.styleable.CustomView_mradius, 30);
+        TypedArray ta = getContext().obtainStyledAttributes(set, R.styleable.CustomCircleView);
+        mSquareColor = ta.getColor(R.styleable.CustomCircleView_square_color, Color.BLUE);
+        circle = ta.getDimensionPixelSize(R.styleable.CustomCircleView_circleRadius, 30);
         mPaintSquare.setColor(mSquareColor);
         ta.recycle();
     }

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.thefourthproject.models.ProductModel;
+
 import java.util.List;
 
 public class ProductsRecycleAdapter extends RecyclerView.Adapter<ProductsRecycleAdapter.UsersAdapterVh> {
