@@ -5,14 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.os.Build;
 
 import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 
 public class CustomView extends View {
 
@@ -44,24 +41,16 @@ public class CustomView extends View {
         init(attrs);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public CustomView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(attrs);
-    }
-
     private void init(@Nullable AttributeSet set) {
 
         mPaintSquare = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaintSquare.setTextAlign(Paint.Align.CENTER);
-
         if (set == null) return;
         TypedArray ta = getContext().obtainStyledAttributes(set, R.styleable.CustomView);
         mSquareColor = ta.getColor(R.styleable.CustomView_square_color, Color.BLUE);
         mSquareSize = ta.getDimensionPixelSize(R.styleable.CustomView_square_size, SQUARE_SIZE_DEF);
         circle = ta.getDimensionPixelSize(R.styleable.CustomView_mradius, 30);
         mPaintSquare.setColor(mSquareColor);
-
         ta.recycle();
     }
 }

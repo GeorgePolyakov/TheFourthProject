@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent1);
                 break;
             default:
-                Log.i("myTag", "hello");
+                Log.i("myTag", "We got error");
                 break;
         }
     }

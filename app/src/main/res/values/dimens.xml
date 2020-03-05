@@ -8,4 +8,7 @@
     <dimen name="custom_width_height">170dp</dimen>
     <dimen name="standart_size">16sp</dimen>
     <dimen name="product_height">258dp</dimen>
+    <dimen name="product_image_margin">52dp</dimen>
+    <dimen name="my_text_size">24sp</dimen>
+    <dimen name="recycleView_height_weigth">120dp</dimen>
 </resources>

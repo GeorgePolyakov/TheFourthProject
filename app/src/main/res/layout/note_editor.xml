@@ -8,4 +8,4 @@
     android:gravity="top"
     android:padding="5dp"
     android:scrollbars="vertical"
-    android:textSize="22sp" />
+    android:textSize="@dimen/my_text_size" />

@@ -33,9 +33,13 @@ public class ProductActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void setImage() {
-        logo = getIntent().getIntExtra("logo", 0);
-        ivLogo.setImageResource(logo);
-        ivLogo.setTransitionName("ivLogo");
+        if (getIntent().getExtras() == null) {
+            Toast.makeText(this, "We didn't get data", Toast.LENGTH_SHORT).show();
+        } else {
+            logo = getIntent().getIntExtra("logo", 0);
+            ivLogo.setImageResource(logo);
+            ivLogo.setTransitionName("ivLogo");
+        }
     }
 
     public void setDescription() {
@@ -65,6 +69,5 @@ public class ProductActivity extends AppCompatActivity {
     public void initVariable() {
         tvUser = findViewById(R.id.selectedUser);
         ivLogo = findViewById(R.id.productImageView);
-
     }
 }
