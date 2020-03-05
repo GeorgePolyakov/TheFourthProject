@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapterVh> {
+public class ProductsRecycleAdapter extends RecyclerView.Adapter<ProductsRecycleAdapter.UsersAdapterVh> {
 
     private List<ProductModel> productModelList;
     private Context context;
     private OnItemCustomClickListener clickListener;
 
-    public UsersAdapter(List<ProductModel> productModelList, OnItemCustomClickListener clickListener) {
+    public ProductsRecycleAdapter(List<ProductModel> productModelList, OnItemCustomClickListener clickListener) {
         this.productModelList = productModelList;
         this.clickListener = clickListener;
     }
@@ -31,14 +31,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersAdapter
 
     @NonNull
     @Override
-    public UsersAdapter.UsersAdapterVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProductsRecycleAdapter.UsersAdapterVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         return new UsersAdapterVh(LayoutInflater.from(context).inflate(R.layout.row_users, null), clickListener);
     }
 
-
     @Override
-    public void onBindViewHolder(@NonNull UsersAdapter.UsersAdapterVh holder, int position) {
+    public void onBindViewHolder(@NonNull ProductsRecycleAdapter.UsersAdapterVh holder, int position) {
 
         ProductModel productModel = productModelList.get(position);
         int username = productModel.getUserName();

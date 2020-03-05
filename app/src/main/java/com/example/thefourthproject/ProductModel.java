@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class ProductModel implements Serializable {
 
-    private int userName;
+    private int productName;
     public ProductModel(int userName) {
-        this.userName = userName;
+        this.productName = userName;
     }
     public int getUserName() {
-        return userName;
+        return productName;
     }
 }

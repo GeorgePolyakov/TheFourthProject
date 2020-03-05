@@ -17,13 +17,13 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsActivity extends AppCompatActivity implements UsersAdapter.OnItemCustomClickListener {
+public class NewsActivity extends AppCompatActivity implements ProductsRecycleAdapter.OnItemCustomClickListener {
 
     RecyclerView recyclerView;
     List<ProductModel> productModelList = new ArrayList<>();
     Pair[] pairs;
     int[] names = {R.drawable.clock, R.drawable.chair, R.drawable.table, R.drawable.cupboard, R.drawable.vase};
-    UsersAdapter usersAdapter;
+    ProductsRecycleAdapter productsRecycleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +39,8 @@ public class NewsActivity extends AppCompatActivity implements UsersAdapter.OnIt
             ProductModel productModel = new ProductModel(s);
             productModelList.add(productModel);
         }
-        usersAdapter = new UsersAdapter(productModelList, this);
-        recyclerView.setAdapter(usersAdapter);
+        productsRecycleAdapter = new ProductsRecycleAdapter(productModelList, this);
+        recyclerView.setAdapter(productsRecycleAdapter);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -50,7 +50,7 @@ public class NewsActivity extends AppCompatActivity implements UsersAdapter.OnIt
         listOfViews.add(Pair.create((View) ivLogo, "ivLogo"));
         Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(
                 NewsActivity.this, listOfViews.toArray(new android.util.Pair[]{})).toBundle();
-        int drawableId = usersAdapter.getItem(position);
+        int drawableId = productsRecycleAdapter.getItem(position);
         Intent intent = new Intent(NewsActivity.this, ProductActivity.class);
         Log.i("myTag", ivLogo.getId() + "");
         intent.putExtra("logo", drawableId);
